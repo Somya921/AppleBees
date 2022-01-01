@@ -153,8 +153,12 @@ function App () {
             aria-describedby="basic-addon2"/>
             <InputGroup>
 			<Button style={btnStyle}	
-			onClick={() => {UpdateList(UpdateToDoList(inputText,todoList));
-                                        UpdateInputText("");}}>
+			onClick={() => {if (inputText === "" || inputText.trim() === 0) {
+                                                const confirmBox = window.confirm(
+                                                "Please enter valid list item"
+                                                );}
+                                        else {UpdateList(UpdateToDoList(inputText,todoList));
+                                        UpdateInputText("");}}}>
 			ADD
 			</Button>                  
             </InputGroup>
